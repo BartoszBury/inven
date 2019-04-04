@@ -1,0 +1,123 @@
+
+.map
+  @include style(margin-top, 30px, 70px, 100px, 150px)
+  position: relative
+  height: 500px
+  overflow: hidden
+
+  .gm-style-iw-t
+    &:after, &:before
+      content: none
+      background-color: transparent
+
+  .gm-style-pbc
+    display: none
+  //remove info scroll
+
+  .gm-style-iw-d
+    overflow: inherit !important
+
+  .gm-style-iw-c
+    border-radius: 0
+    padding: 0
+    box-shadow: 0 0 20px 0 rgba(8, 9, 8, 0.1)
+    overflow: inherit !important
+
+  .gm-ui-hover-effect
+    display: none !important
+  // remove "X" button
+
+  &__content-container
+    width: 100%
+    position: absolute
+    left: 0
+    top: 0
+
+  &__content
+    height: 500px
+    width: 100%
+
+  &__header-container
+    position: absolute
+    height: 100%
+    display: flex
+    align-items: center
+    background-image: linear-gradient(to right, rgb(255, 255, 255), rgba(255, 255, 255, 0))
+
+    @include breakpoint(xs)
+      display: none
+
+    @include breakpoint(lg)
+      display: flex
+
+    &:before
+      content: ''
+      background-color: #ffffff
+      width: 200%
+      transform: translateX(-100%)
+
+
+  &__header
+    margin-bottom: 0
+    font-size: 80px
+    z-index: 999
+
+  &__description-container
+    position: relative
+    display: flex
+    flex-direction: column
+    justify-content: center
+    padding: 15px 30px 15px 30px
+    @include breakpoint(xs)
+      width: 245px
+      background: #ffffff
+
+    @include breakpoint(sm)
+      width: auto
+
+  &__description
+    color: #646363
+    font-size: 14px
+    font-weight: 400
+    text-decoration: none
+    @include animate(0.1s)
+
+    &--link
+
+      @include breakpoint(xs)
+        font-size: 12px
+
+      @include breakpoint(sm)
+        font-size: 14px
+
+      &:hover
+        color: #646363
+
+        & > p
+          color: $color-secondary
+
+    &--mb-5
+      margin-bottom: 5px
+
+    &--mb-15
+      margin-bottom: 15px
+
+    &--bold
+      font-weight: bold
+
+    &--brown
+      color: #bd9e57
+
+  &__icon-market
+    position: absolute
+    bottom: 0
+    right: -18px
+
+  &__icon
+    fill: $color-secondary
+    width: 15px
+    height: 15px
+    margin-right: 5px
+
+
+

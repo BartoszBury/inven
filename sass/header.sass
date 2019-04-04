@@ -1,0 +1,15 @@
+@media (min-width: $header-mobile+1)
+  .nav-container--mobile
+    display: none
+
+@media (max-width: $header-mobile)
+  .nav-container
+    display: none
+  .nav-container--mobile
+    display: block
+
+@import "header/main-desktop"
+@import "header/main-mobile"
+
+
+

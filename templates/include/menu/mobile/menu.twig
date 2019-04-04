@@ -1,0 +1,42 @@
+{% extends 'include/menu/mobile/base.twig' %}
+{% block mobile %}
+    <div class="nav-container nav-container--mobile">
+        <nav class="nav">
+            {% block nav %}
+
+                <div class="col-xs-2">
+                    <div class="hamburger"></div>
+                </div>
+
+                {#                <div class="wmpl col-xs-2 col-sm-4">
+                                    {{ switcher_lang }}
+                                </div>#}
+
+
+                <div class="nav__logo-container col-xs-8">
+                    <a href="{{ site.url }}">
+                        <img class="nav__logo svg" src="{{ logo.header.url }}" alt="{{ site.title }} - Logo ">
+                    </a>
+
+                </div>
+
+                <li class="col-xs-2" style="list-style: none; text-align: center;">
+                    <a style="text-decoration: none; color: #bb8c2d; font-size: 18px; " href="tel:+48510004142">
+                        <img class="svg menu__icon" width="17" height="17" src="{{ global.icon.telephone }}">
+                    </a>
+                </li>
+
+
+
+                {% block menu %}
+                    <div class="nav__menu row">
+
+                        {% block menu_body %}
+                            {% include 'include/menu/mobile/block-menu.twig' %}
+                        {% endblock %}
+                    </div>
+                {% endblock %}
+            {% endblock %}
+        </nav>
+    </div>
+{% endblock %}

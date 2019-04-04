@@ -1,0 +1,111 @@
+.nav-container--mobile
+  width: 100%
+
+  .nav
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    align-items: center
+
+    @include breakpoint(xs)
+      padding-top: 25px
+      padding-bottom: 25px
+
+    &__logo
+      fill: $color-secondary
+
+      &-container
+        display: flex
+        justify-content: center
+        align-items: center
+
+      @include breakpoint(only-xs)
+        width: 70px
+        height: 61px
+
+    &__menu
+      position: absolute
+      top: 97px
+      justify-content: flex-end
+      flex-direction: column
+      display: none
+
+      @include breakpoint(xs)
+        top: 87px
+
+      @include breakpoint(sm)
+        top: 97px
+
+  .menu
+    width: 225px
+    float: left
+    flex-direction: column
+
+    &__logo
+      fill: $color-secondary
+
+    &__item
+      padding: 0
+      margin: 12px 0
+      text-align: left
+
+    &__link
+      position: relative
+      padding-left: 10px
+
+      &--brown
+        color: red
+        text-decoration: none
+
+    &__icon
+      width: 20px
+      height: 20px
+      margin-right: 10px
+
+  .lang
+    justify-content: center
+
+  .hamburger
+    float: right
+    width: 40px
+    height: 35px
+    border: 0
+    border-top: 3px solid $color-secondary
+    background: transparent
+    position: relative
+    margin-right: 20px
+    transition: 0.3s transform linear
+
+    @include breakpoint(xs)
+      width: 30px
+
+    @include breakpoint(sm)
+      width: 40px
+
+    &:hover
+      cursor: pointer
+
+    &::before, &::after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+      width: 100%
+      border-top: 3px solid $color-secondary
+      transform: translateY(10px)
+
+    &::after
+      transform: translateY(25px)
+      transition: 0.3s transform linear
+
+    &--active
+      transform: rotate(45deg) translateY(5px)
+      border: none
+
+      &::before, &::after
+        border-color: $color-secondary
+
+      &::after
+        transform: rotate(-90deg) translateX(-10px)
+
+

@@ -1,0 +1,59 @@
+// ------------- Global --------------- //
+=style($style, $xs: null, $sm:null, $lg:null , $xl:null)
+  @if $xs == null
+    $xs: unset
+    $sm: unset
+    $lg: unset
+    $xl: unset
+  @else if $sm == null
+    $sm: $xs
+    $lg: $xs
+    $xl: $xs
+  @else if $lg == null
+    $lg: $sm
+    $xl: $sm
+
+  @include breakpoint(xs)
+    #{$style}: $xs
+  @include breakpoint(sm)
+    #{$style}: $sm
+  @include breakpoint(lg)
+    #{$style}: $lg
+  @include breakpoint(xl)
+    #{$style}: $xl
+
+=col($xs: null, $sm:null, $lg:null , $xl:null)
+  @if $xs == null
+    $xs: unset
+    $sm: unset
+    $lg: unset
+    $xl: unset
+  @else if $sm == null
+    $sm: $xs
+    $lg: $xs
+    $xl: $xs
+  @else if $lg == null
+    $lg: $sm
+    $xl: $sm
+
+  @include breakpoint(xs)
+    flex-basis: $xs
+    max-width: $xs
+  @include breakpoint(sm)
+    flex-basis: $sm
+    max-width: $sm
+  @include breakpoint(lg)
+    flex-basis: $lg
+    max-width: $lg
+  @include breakpoint(xl)
+    flex-basis: $xl
+    max-width: $xl
+
+
+=animate($speed: .3s)
+  transition: all ease-in-out $speed
+
+=margin-auto
+  margin:
+    left: auto
+    right: auto

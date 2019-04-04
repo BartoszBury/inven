@@ -1,0 +1,43 @@
+{% block mobile %}
+    <div class="nav-container nav-container--mobile">
+        <nav class="nav">
+            {% block nav %}
+
+                {% block hamburger %}
+                    <div class="hamburger-container">
+                        <div class="hamburger"></div>
+                    </div>
+                {% endblock %}
+
+                {% block logo %}
+                    <div class="nav__logo d-flex-center">
+                        <a href="{{ site.url }}">
+                            <img src="{{ logo.header.url }}" alt="{{ site.title }} - Logo ">
+                        </a>
+                    </div>
+                {% endblock %}
+
+                {% block menu %}
+                    <div class="nav__menu row">
+
+                        {% block menu_body %}
+                            {% include 'include/menu/mobile/block-menu.twig' %}
+                        {% endblock %}
+
+                        {% block lang %}
+                            <div class="lang">
+                                <div class="menu">
+                                <span class="menu__item menu__item--switch-lang">
+                                    {{ switcher_lang }}
+                                </span>
+                                </div>
+                            </div>
+                        {% endblock %}
+
+                    </div>
+                {% endblock %}
+
+            {% endblock %}
+        </nav>
+    </div>
+{% endblock %}

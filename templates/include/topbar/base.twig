@@ -1,0 +1,15 @@
+<div class="topbar">
+    <div class="row topbar__body">
+        {% block body %}
+            <div class="container">
+                <div class="topbar__item">
+                    <img src="{{ global.icon.telephone }}" width="15" height="15">
+                    <a class="topbar__link" href="tel: {{ telephone }}"> {{ telephone }}</a>
+                    <div class="wmpl">
+                        {{ switcher_lang }}
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+</div>

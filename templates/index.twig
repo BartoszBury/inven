@@ -1,0 +1,37 @@
+{% extends "base.twig" %}
+
+{% block header %}
+    <header class="header">
+
+        {% block topbar %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block menu %}
+            {{ parent() }}
+        {% endblock %}
+
+    </header>
+{% endblock %}
+
+
+{% block container %}
+
+    <div class="container--full-width">
+        <div class="page-title">
+            <div class="container">
+                <h1 class="page-title__title">
+                    {{ post.title }}
+                </h1>
+            </div>
+            <img class="page-title__img" src="{{ Image(post.custom_image) }}">
+        </div>
+    </div>
+
+
+
+
+    <div class="container">
+        {{ post.content }}
+    </div>
+{% endblock %}

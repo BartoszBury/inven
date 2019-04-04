@@ -1,0 +1,46 @@
+.according
+  &-content
+
+    & > p:nth-child(n+3)
+      display: none
+
+    &.active > p:nth-child(n+3)
+      display: block
+
+  &-button
+
+    &.active .read-more
+      display: none
+
+    &:not(.active) .read-less
+      display: none
+
+.accordingFront
+  margin-top: 15px
+
+  &.shadow
+    box-shadow: 3.5px 3.5px 20px 0 rgba(8, 9, 8, 0.1)
+    background-color: #ffffff
+  //front page
+  &-content
+    & > div
+      display: none
+
+    &.active > div
+      display: block
+
+  &-button
+    @include animate()
+
+    &.active
+      background-color: #ffffff
+      color: $color-secondary
+
+    &:not(.active) .svg
+      fill: #ffffff
+
+    &.active .read-more
+      display: none
+
+    &:not(.active) .read-less
+      display: none

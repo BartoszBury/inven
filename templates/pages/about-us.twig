@@ -1,0 +1,199 @@
+{% extends 'canvas.twig' %}
+{% set lunch = post.get_field('lunch') %}
+{% set gallery = post.get_field('gallery') %}
+{% set banner = post.get_field('banner') %}
+{% set music = post.get_field('music') %}
+{% set project = post.get_field('project') %}
+{% set design = post.get_field('design') %}
+
+{% block container %}
+
+    <div class="container--full-width">
+
+        <div class="page-title">
+            <div class="container">
+                <h1 class="page-title__title">
+                    {{ post.title }}
+                </h1>
+            </div>
+            <img class="page-title__img" src="{{ Image(post.custom_image) }}">
+        </div>
+        <div class="container">
+            <div class="lunch">
+                <div class="lunch__body">
+
+                    <div class="lunch__field lunch__field--left col-xs-12 col-sm-8 col-lg-6">
+                        <h2 class="lunch__title">
+                            {{ lunch.title }}
+                        </h2>
+                        <div class="lunch__description">
+                            {{ lunch.description }}
+                        </div>
+                        <h3 class="lunch__title lunch__title--margin-top">
+                            {{ lunch.title_second }}
+                        </h3>
+                    </div>
+
+                    <div class="lunch__field col-xs-12 col-sm-4 col-lg-6">
+                        <img class="lunch__img lunch__img--right lunch__img--margin-top" src="{{ Image(lunch.image) }}">
+                    </div>
+
+                </div>
+            </div>
+            <div class="gallery">
+                <div class="gallery__header">
+                    {{ gallery.header }}
+                </div>
+                <div class="gallery__description">
+                    {{ gallery.description }}
+                </div>
+
+                <div class="gallery__body">
+                    {% for image in gallery.gallery %}
+                        <div class="gallery__img-container">
+                            <a data-fancybox="gallery" href="{{ Image(image) }}">
+                                <img class="gallery__img" src="{{ Image(image) }}"/>
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+        <div class="textImage">
+            <div class="textImage__title container">
+                {{ banner.title }}
+            </div>
+            <img class="textImage__background" src="{{ banner.image }}">
+        </div>
+
+        <div class="team-container">
+
+            <div class="container">
+                <div class="team">
+                    <div class="team__header">
+                        {{ post.music_header }}
+                    </div>
+                    <div class="team__sub-header">
+                        {{ post.music_sub_header }}
+                    </div>
+                    {% for person in music %}
+                        {% if loop.index is odd %}
+                            <div class="team__body">
+                                <div class="team__img-container col-xs-3">
+                                    <img class="team__img" src="{{ Image(person.image) }}"/>
+                                </div>
+                                <div class="team__content col-xs-12 col-sm-9">
+                                    <div class="team__name">
+                                        {{ person.title }}
+                                    </div>
+                                    <div class="team__description">
+                                        {{ person.description }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="team__body team__body--even">
+                                <div class="team__content col-xs-12 col-sm-9">
+                                    <div class="team__name">
+                                        {{ person.title }}
+                                    </div>
+                                    <div class="team__description">
+                                        {{ person.description }}
+                                    </div>
+                                </div>
+                                <div class="team__img-container col-xs-3">
+                                    <img class="team__img" src="{{ Image(person.image) }}"/>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="team">
+                    <div class="team__header team__header--margin-bottom">
+                        {{ post.project_header }}
+                    </div>
+                    {% for person in project %}
+                        {% if loop.index is odd %}
+                            <div class="team__body">
+                                <div class="team__img-container col-xs-3">
+                                    <img class="team__img" src="{{ Image(person.image) }}"/>
+                                </div>
+                                <div class="team__content col-xs-12 col-sm-9">
+                                    <div class="team__name">
+                                        {{ person.title }}
+                                    </div>
+                                    <div class="team__description">
+                                        {{ person.description }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="team__body team__body--even">
+                                <div class="team__content col-xs-12 col-sm-9">
+                                    <div class="team__name">
+                                        {{ person.title }}
+                                    </div>
+                                    <div class="team__description">
+                                        {{ person.description }}
+                                    </div>
+                                </div>
+                                <div class="team__img-container col-xs-3">
+                                    <img class="team__img" src="{{ Image(person.image) }}"/>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="team">
+                    <div class="team__header team__header--margin-bottom">
+                        {{ post.design_header }}
+                    </div>
+                    {% for person in design %}
+                        {% if loop.index is odd %}
+                            <div class="team__body">
+                                <div class="team__img-container col-xs-3">
+                                    <img class="team__img" src="{{ Image(person.image) }}"/>
+                                </div>
+                                <div class="team__content col-xs-12 col-sm-9">
+                                    <div class="team__name">
+                                        {{ person.title }}
+                                    </div>
+                                    <div class="team__description">
+                                        {{ person.description }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="team__body team__body--even">
+                                <div class="team__content col-xs-12 col-sm-9">
+                                    <div class="team__name">
+                                        {{ person.title }}
+                                    </div>
+                                    <div class="team__description">
+                                        {{ person.description }}
+                                    </div>
+                                </div>
+                                <div class="team__img-container col-xs-3">
+                                    <img class="team__img" src="{{ Image(person.image) }}"/>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <img class="team__background" src="{{ Image(post.image) }}">
+
+        </div>
+
+    </div>
+
+{% endblock %}

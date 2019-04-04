@@ -1,0 +1,64 @@
+{% for short_date in available_months %}
+    <div class="col-xs-12 shadow accordingFront">
+        <div class="accordingFront-button event__according {{ loop.index == 1 ? 'active' }}  ">
+            {{ short_date.name }}
+            <span class="d-flex align-center justify-content read-less"><img class="event__icon event__icon--large svg" src="{{ global.icon.general.down_arrow }}"></span>
+            <span class="d-flex align-center justify-content read-more"><img class="event__icon event__icon--large svg" src="{{ global.icon.general.up_arrow }}"></span>
+        </div>
+        <div class="accordingFront-content {{ loop.index == 1 ? 'active' }}">
+            {% for post in event %}
+                {% if post.date_event | date('mY') == (short_date.month ~ short_date.year) %}
+                    <div class="event__field event__field--clean-style col-xs-12">
+                        <div class="col-xs-12 col-sm-8">
+                            <div class="event__content event__content--small-padding">
+                                <h2 class="event__title">{{ post.title }}</h2>
+                                <div class="event__information-container event__information-container--margin-top">
+                                    <div class="event__date">
+                                        <img class="event__icon svg" src="{{ global.icon.general.calendar }}"> {{ post.date_event | date("d.m.Y") }}
+                                    </div>
+                                    <div class="event__time">
+                                        <img class="event__icon svg" src="{{ global.icon.general.clock }}">
+                                        <div class="event__hours">
+                                            {{ post.hours_start }}
+                                        </div>
+                                        <div class="event__minutes">
+                                            {{ post.minutes_start }}
+                                        </div>
+                                        <div style="margin: 0 4px">-</div>
+                                        <div class="event__hours">
+                                            {{ post.hours_end }}
+                                        </div>
+                                        <div class="event__minutes">
+                                            {{ post.minutes_end }}
+                                        </div>
+                                    </div>
+                                    <div class="event__price">
+                                        <img class="event__icon svg" src="{{ global.icon.general.tickets }}">
+                                        {{ post.price }}
+                                    </div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="event__image-container">
+                                        <img class="event__image" src="{{ Image(post.custom_image) }}">
+                                    </div>
+                                </div>
+                                <div class="event__text">
+                                    {{ post.content | slice(0, 200) }}
+                                </div>
+                                <div class="event__actions event__actions--relative">
+                                    <a class="event__buy {{ post.disable_button ? "event__buy--disable" }}" target="_blank" href="{{ post.event_link }}"><img class="event__icon event__icon--big event__icon--light svg" src="{{ global.icon.general.cart }}"> {{ __('kup bilet', 'coders') }}</a>
+                                    <a class="event__read-more according-button" href="{{ general.event.slug }}">
+                                        <img class="event__icon event__icon--big svg read-more" src="{{ global.icon.general.plus }}">
+                                        <img class="event__icon event__icon--big svg read-less" src="{{ global.icon.general.minus }}">
+                                        <span class="read-more">{{ __('czytaj wiecej', 'coders') }}</span><span class="read-less">{{ __('czytaj mniej', 'coders') }}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endfor %}
+

@@ -1,0 +1,63 @@
+{% extends 'canvas.twig' %}
+
+{% block container %}
+
+    <div class="container--full-width">
+
+        <div class="page-title">
+            <div class="container">
+                <h1 class="page-title__title">
+                    {{ post.title }}
+                </h1>
+            </div>
+            <img class="page-title__img" src="{{ Image(post.custom_image) }}">
+        </div>
+
+        <div class="container">
+            <div class="lunch">
+                {% for post in lunch %}
+                    {% if loop.index is odd %}
+                        <div class="lunch__body">
+
+                            <div class="lunch__field lunch__field--left col-xs-12 col-sm-8 col-lg-6">
+                                <h2 class="lunch__title">
+                                    {{ post.title }}
+                                </h2>
+                                <div class="lunch__description">
+                                    {{ post.content }}
+                                </div>
+                            </div>
+
+                            <div class="lunch__field col-xs-12 col-sm-4 col-lg-6">
+                                <img class="lunch__img lunch__img--right" src="{{ Image(post.custom_image) }}">
+                            </div>
+
+                        </div>
+
+                    {% else %}
+
+                        <div class="lunch__body lunch__body--even">
+
+                            <div class="lunch__field col-xs-12 col-sm-4 col-lg-6">
+                                <img class="lunch__img lunch__img--left" src="{{ Image(post.custom_image) }}">
+                            </div>
+
+                            <div class="lunch__field col-xs-12 col-sm-8 col-lg-6">
+                                <h2 class="lunch__title">
+                                    {{ post.title }}
+                                </h2>
+                                <div class="lunch__description">
+                                    {{ post.content }}
+                                </div>
+                            </div>
+
+                        </div>
+
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}

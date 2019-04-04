@@ -1,0 +1,173 @@
+{% extends 'index.twig' %}
+{% set parallax = post.get_field('parallax') %}
+{% set our_offer = post.get_field('our_offer') %}
+{% set our_projects = post.meta('our_projects') %}
+{% set about_us = post.meta('about_us') %}
+{% set our_reference = post.meta('reference') %}
+{% set our_partners = post.meta('partners') %}
+{% block container %}
+    <div class="container--full-with">
+        <div class="slider">
+            <div class="slider__body owl-carousel">
+                {% for slider in post.meta('slider') %}
+                    <div class="slider__field-container">
+                        <div class="slider__field">
+                            <div class="container">
+                                <h1 class="slider__title">
+                                    {{ slider.title }}
+                                </h1>
+                                <div class="slider__button-container">
+                                    {% for button in slider.button %}
+                                        <a class="slider__button" href="{{ button.link.url }}">
+                                            {{ button.link.title }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        <img class="slider__background" src="{{ Image(slider.background) }}" alt="{{ slider.background.title }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="circles container">
+            <div class="circles__body">
+                {% for circle in post.meta('circles') %}
+                    <div class="circles__field">
+                        <img class="circles__img" src="{{ Image(circle.image) }}" alt="{{ circle.image.title }}">
+                        <div class="circles__content">
+                            {{ circle.content }}
+                        </div>
+                        <a class="circles__link" href="{{ circle.link.url }}"> {{ circle.link.title }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="parallax" style="background-image: url({{ Image(parallax.background) }})">
+            <div class="container">
+                <div class="parallax__title">
+                    {{ parallax.title }}
+                </div>
+            </div>
+        </div>
+        <div class="offer">
+
+            <div class="container">
+                <h2 class="offer__header">{{ our_offer.header }}</h2>
+
+                <div class="offer__body">
+                    {% for post in offer.post %}
+                        {% set settings = post.meta('settings') %}
+                        <div class="offer__field">
+                            <div class="offer__content">
+                                <h3 class="offer__title offer__title--hover">
+                                    {{ post.title }}
+                                </h3>
+                                <a class="offer__link" href="{{ post.link }}"></a>
+                                <img class="offer__img" src="{{ Image(settings.image) }}">
+                            </div>
+                            <h3 class="offer__title offer__title--bottom">
+                                {{ post.title }}
+                            </h3>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <a class="offer__footer" href="{{ our_offer.link.url }}">
+                    {{ our_offer.link.title }}
+                </a>
+
+            </div>
+
+            <img class="offer__background" src="{{ Image(our_offer.background) }}" alt="{{ our_offer.background.title }}">
+        </div>
+        <div class="icons">
+            <div class="container">
+                <div class="icons__body">
+
+                    {% for icon in post.meta('icons') %}
+                        <div class="icons__field">
+                            <img class="icons__img" src="{{ Image(icon.image) }}">
+                            <p class="icons__title"> {{ icon.title }}</p>
+                            <p class="icons__sub-title">{{ icon.sub_title }}</p>
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <div class="icons__background"></div>
+            </div>
+        </div>
+        <div class="portfolio">
+
+            <h2 class="portfolio__header">
+                {{ our_projects.header }}
+            </h2>
+
+            <div class="portfolio__body owl-carousel">
+                {% for post in portfolio.post %}
+                    {% set settings = post.meta('settings') %}
+                    <div class="portfolio__field">
+                        <div class="portfolio__content">
+                            <div class="portfolio__title">
+                                {{ post.title }}
+                            </div>
+                            <a class="portfolio__link" href="{{ post.link }}"></a>
+                            <img class="portfolio__img" src="{{ settings.image.url }}">
+                        </div>
+
+                        {{ post.title }}
+                    </div>
+                {% endfor %}
+            </div>
+
+            <a class="portfolio__footer" href="{{ our_projects.footer_link.url }}">
+                {{ our_projects.footer_link.title }}
+            </a>
+
+        </div>
+        <div class="about-us">
+            <div class="about-us__body container">
+                <div class="col-xs-6 col-sm-3">
+                    <div class="about-us__title">
+                        {{ about_us.title }}
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-3">
+                    <div class="about-us__content">
+                        {{ about_us.content }}
+                    </div>
+                </div>
+            </div>
+
+            <img class="about-us__background" src="{{ about_us.background.url }}">
+        </div>
+        <div class="reference" style="background-image: url({{ Image(our_reference.background) }})">
+            <h3 class="reference__header">
+                {{ our_reference.title }}
+            </h3>
+            <div class="container">
+                <div class="reference__body owl-carousel">
+                    {% for post in reference.post %}
+                        <div class="reference__content">
+                            {{ post.content }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="partners">
+            <h3 class="partners__header">
+                {{ our_partners.title }}
+            </h3>
+
+            <div class="partners__body container owl-carousel">
+                {% for post in partners.post %}
+                    {% set settings = post.meta('settings') %}
+                    <a class="partners__field" href="{{ post.url }}" target="_blank">
+                        <img class="partners__img" src="{{ Image(settings.image) }}">
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

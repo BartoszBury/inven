@@ -1,0 +1,24 @@
+{% set banner = post.get_field('banner') %}
+
+<div class="banner">
+    <div class="banner__body-container">
+        <div class="banner__body">
+            <img src="{{ Image(banner.logo) }}">
+            {% include '/include/fn-icon/base.twig' %}
+        </div>
+    </div>
+    <img class="banner__background" src="{{ Image(banner.background) }}">
+</div>
+<div class="cafe">
+    <div class="cafe__body">
+        <div class="col-xs-4 cafe__text--left">
+            {{ banner.text_left }}
+        </div>
+        <div class="col-xs-4 cafe__img-container">
+            <img class="cafe__img" src="{{ Image(banner.image) }}">
+        </div>
+        <div class="col-xs-4 cafe__text--right">
+            {{ banner.text_right }}
+        </div>
+    </div>
+</div>

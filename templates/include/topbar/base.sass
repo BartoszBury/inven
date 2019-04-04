@@ -1,0 +1,91 @@
+/* ============= */
+/*   Top Bar    */
+/* ============ */
+
+@include breakpoint(h-mobile)
+  .topbar
+    display: none
+
+.topbar
+
+  &__body
+    display: flex
+    flex-wrap: wrap
+    justify-content: flex-end
+    padding-top: 20px
+
+  &__item
+    display: flex
+    align-items: center
+    justify-content: flex-end
+    font-size: 14px
+    line-height: 0.69
+    margin-right: 17px
+
+  &__link
+    color: #bd9d57
+    margin-left: 10px
+    margin-right: 10px
+    text-decoration: none
+
+  &__icon
+    color: #bd9d57
+
+.wmpl
+
+  &--mobile
+    padding-left: 20px
+
+    & > div
+      width: 50px
+      max-width: initial
+
+    .wpml-ls-legacy-dropdown
+      a
+        background-color: transparent
+        border: none
+
+      .wmpl-ls-current-language:hover > a
+        background: transparent
+
+
+    .wpml-ls-sub-menu
+      background-color: black
+      border: 0
+      margin-left: 10px
+
+
+    .wpml-ls-legacy-dropdown a:hover, .wpml-ls-legacy-dropdown a:focus, .wpml-ls-legacy-dropdown .wpml-ls-current-language:hover > a
+      color: #ffffff
+      background: transparent
+
+    .wpml-ls-legacy-dropdown a.wpml-ls-item-toggle:after
+      color: red
+      right: 5px
+
+
+  @include breakpoint(sm)
+    .wpml-ls-slot-shortcode_actions
+      display: flex
+
+      & > a
+        margin-left: 20px
+
+    .wpml-ls-sub-menu
+      display: flex
+
+  .wpml-ls-legacy-list-horizontal
+    border: 0
+    padding: 0
+
+  a
+    color: rgba(255, 255, 255, 0.3)
+    text-decoration: none
+
+    &:hover
+      color: #ffffff
+
+  .wpml-ls-current-language
+    & > a
+      color: #ffffff
+

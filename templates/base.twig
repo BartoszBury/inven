@@ -1,0 +1,58 @@
+{% include 'include/head-html.twig' %}
+<body class="{{ body_class }}">
+
+{% block header %}
+    <header class="header">
+
+        {% block topbar %}
+            {% include '/include/topbar/base.twig' %}
+        {% endblock %}
+
+
+        {% block menu %}
+
+            {% block menu_desktop %}
+                {% include 'include/menu/desktop/menu.twig' %}
+            {% endblock %}
+
+            {% block menu_mobile %}
+                {% include 'include/menu/mobile/menu.twig' %}
+            {% endblock %}
+
+        {% endblock %}
+
+        {% block  breadcrumbs %}
+            {#{ % include 'include/breadcrumbs/base.twig' %} #}
+        {% endblock %}
+
+    </header>
+{% endblock %}
+
+<main class="main">
+    {% block social %}
+        {% include 'include/social/base.twig' %}
+    {% endblock %}
+
+    {% block container %}
+        <div class="container">
+            {{ post.content }}
+        </div>
+    {% endblock %}
+
+    {% block scroll %}
+
+        {% include 'include/scroll/base.twig' %}
+
+    {% endblock %}
+
+    <div class="main__overlay"></div>
+</main>
+
+{% block footer %}
+    {# include '/view/google-map/base.twig' #}
+    {% include '/include/footer/base.twig' %}
+{% endblock %}
+
+{{ function('wp_footer') }}
+</body>
+</html>

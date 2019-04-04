@@ -1,0 +1,25 @@
+{% block desktop %}
+    <div class="nav-container nav-container--desktop">
+        <nav class="nav row">
+            {% block nav %}
+                {% block logo %}
+                    <div class="nav__logo d-flex-center">
+                        <a href="{{ site.url }}">
+                            <img class="svg" src="{{ logo.header.url }}" alt="{{ site.title }} - Logo " width="152" height="130">
+                        </a>
+                    </div>
+                {% endblock %}
+
+                {% block menu %}
+                    <div class="nav__menu">
+
+                        {% block menu_body %}
+                            {% include 'include/menu/desktop/block-menu.twig' %}
+                        {% endblock %}
+
+                    </div>
+                {% endblock %}
+            {% endblock %}
+        </nav>
+    </div>
+{% endblock %}

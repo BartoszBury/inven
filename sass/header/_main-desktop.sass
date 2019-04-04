@@ -1,0 +1,91 @@
+.header
+  background: rgb(0, 0, 0)
+  @include breakpoint(h-desktop)
+
+  @include breakpoint(h-mobile)
+
+  &--absolute-md
+    position: absolute
+    width: 100%
+    z-index: 99
+
+.nav
+  &-container
+    position: relative
+
+  &__menu
+    display: flex
+    align-items: center
+    justify-content: center
+
+.menu
+  display: flex
+  align-items: flex-start
+
+  &__logo
+    fill: $color-secondary
+
+  &__item
+    font-size: 18px
+    list-style-type: none
+    text-decoration: none
+    text-align: center
+
+    &:hover
+      background-color: $color-secondary
+
+    &--phone
+      position: absolute
+      right: 53px
+      display: flex
+      align-items: center
+
+
+    &:hover
+      .menu__link, a
+        color: #ffffff
+
+    &--has-child
+      position: relative
+
+    &--switch-lang
+      padding: 0
+
+    &:hover .sub-menu
+      display: block
+
+  &__icon
+    width: 17px
+    height: 17px
+    margin-right: 10px
+    fill: $color-secondary
+
+  &__link
+    @include animate(.1s)
+    @include style(padding, 50px 30px)
+    display: block
+    color: #ffffff
+    text-decoration: none
+
+    &--current
+      color: $color-secondary
+
+      &[data-anchor]
+        color: #ffffff
+
+.sub-menu
+  display: none
+  position: absolute
+  transform: translate(-50%, 0%)
+  left: 50%
+  width: 300px
+  z-index: 10
+
+  &__item
+    padding:
+      top: 15px
+      bottom: 15px
+
+
+.lang
+  color: white

@@ -1,0 +1,101 @@
+$header-mobile: 1071px
+
+$col-xs: 320px
+$col-sm: 768px
+$col-lg: 1366px
+$col-xl: 1920px
+
+$breakpoints: (col-xs: $col-xs, col-sm: $col-sm, col-lg: $col-lg, col-xl: $col-xl)
+$grid-columns: 12
+
+=col-with($key, $grid)
+  flex-basis: percentage($key/$grid)
+  max-width: percentage($key/$grid)
+
+=col-offset($key, $grid)
+  margin-left: percentage($key/$grid)
+
+=grid-breakpoint($point, $breakpoints)
+  @each $key, $value in $breakpoints
+    @if $point == $key and not ($value == 0)
+      @media only screen and (min-width: #{$value})
+        @content
+
+=breakpoint($point)
+  @if $point == xl
+    @media (min-width: $col-xl)
+      @content
+
+  @else if $point == lg
+    @media (min-width: $col-lg)
+      @content
+
+  @else if $point == sm
+    @media (min-width: $col-sm)
+      @content
+
+  @else if $point == xs
+    @media (min-width: $col-xs)
+      @content
+
+  @else if $point == only-xs
+    @media (max-width: $col-sm - 1)
+      @content
+
+  @else if $point == scale-up-sm
+    @media (min-width: $col-sm)
+      @content
+
+  @else if $point == h-desktop
+    @media (min-width: $header-mobile +1)
+      @content
+
+  @else if $point == h-mobile
+    @media (max-width: $header-mobile)
+      @content
+
+.row
+  box-sizing: border-box
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  width: 100%
+  max-width: 100%
+
+.container
+  width: 100%
+  @include margin-auto
+  @include style(padding-left, 20px, 30px, 50px, 0px)
+  @include style(padding-right, 20px, 30px, 50px, 0px)
+
+@media (min-width: $col-lg)
+  .container
+    max-width: $col-lg - 60
+
+
+.container
+  &--full-width
+    max-width: 100%
+
+.hide-only-xs
+  @include breakpoint(only-xs)
+    display: none
+
+.hide-sm
+  @include breakpoint(scale-up-sm)
+    display: none
+
+@each $key, $value in $breakpoints
+  @if $value == 0
+    @for $i from 1 through $grid-columns
+      .#{$key}-#{$i}
+        @include col-with($i, $grid-columns)
+      .#{$key}-offset-#{$i}
+        @include col-offset($i, $grid-columns)
+  @else if ($value != 0)
+    @include grid-breakpoint($key, $breakpoints)
+      @for $i from 1 through $grid-columns
+        .#{$key}-#{$i}
+          @include col-with($i, $grid-columns)
+        .#{$key}-offset-#{$i}
+          @include col-offset($i, $grid-columns)

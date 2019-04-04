@@ -1,0 +1,14 @@
+{% spaceless %}
+    <style rel="stylesheet" id="dynamic-theme-css" type="text/css" media="all">
+        body, button, input, textarea, .text {
+            font-family: '{{ font.family }}', sans-serif;
+        }
+
+        body {
+            font-weight: {{ font.weight }};
+            font-size: {{ font.size }};
+            color: {{ font.color }};
+            line-height: {{ font.line_height }};
+        }
+    </style>
+{% endspaceless %}

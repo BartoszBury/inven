@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+
+{% block header %}
+    <header class="header header--absolute-md">
+
+        {% block topbar %}
+            {{ parent() }}
+        {% endblock %}
+
+        {% block menu %}
+            {{ parent() }}
+        {% endblock %}
+
+    </header>
+{% endblock %}

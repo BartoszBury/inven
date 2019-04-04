@@ -1,0 +1,74 @@
+.banner
+  position: relative
+  display: flex
+  flex-wrap: wrap
+  justify-content: center
+
+  &__body
+    &-container
+      display: flex
+      align-items: center
+      justify-content: center
+      position: relative
+      z-index: 1
+      @include style(padding-top, 170px, 240px, 300px, 250px)
+      @include style(padding-right, 42px, 32px, 115px, 62px)
+      @include style(padding-bottom, 20px, 20px, 320px)
+      @include style(padding-left, 42px, 32px, 115px, 62px)
+      @include breakpoint(only-xs)
+        width: 100%
+
+    position: relative
+
+  &__background
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    object-fit: cover
+    object-position: center
+    z-index: -1
+
+  &__header
+    @include font-family--secondary
+    @include style(font-size, 45px, 50px, 70px, 90px)
+    @include style(line-height, 80px, 80px, 110px, 140px)
+    color: #f5f0ef
+    text-align: center
+    text-transform: uppercase
+    text-shadow: 0 0 0 rgba(255, 255, 255, 0.5)
+
+  &__description
+    position: absolute
+    @include style(top, 67px, 66px, 95px, 122px)
+    width: 100%
+    color: $color-secondary
+    text-align: center
+    @include style(font-size, 20px, 20px, 24px, 32px)
+
+.cafe
+  &__body
+    display: flex
+    @include style(padding, 50px 0)
+    @include style(font-size, 50px)
+    line-height: 1
+    box-shadow: 0 0 60px 0 rgba(8, 9, 8, 0.15)
+    background-color: #ffffff
+
+
+  &__img
+    &-container
+      position: relative
+    position: absolute
+    @include style(top, -280px)
+    width: 100%
+    padding: 0 20px
+    z-index: 3
+
+  &__text
+    &--left
+      text-align: right
+
+    &--right
+      text-align: left

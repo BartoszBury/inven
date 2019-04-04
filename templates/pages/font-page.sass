@@ -1,0 +1,402 @@
+.slider
+  $block: '.slider'
+
+  &__field
+    &-container
+      position: relative
+
+    position: relative
+    @include style(padding-top, 200px)
+    @include style(padding-bottom, 400px)
+    @include style(font-size, 65px)
+    @include style(font-size, 8px, 16px, 32px, 48px)
+    @include animate()
+    color: #ffffff
+
+  &__title
+    @include style(font-size, 76px)
+    text-align: center
+
+  &__button
+    &-container
+      margin-top: 50px
+      display: flex
+      flex-wrap: wrap
+      align-items: center
+      justify-content: center
+    @include link--primary
+    @include animate()
+    width: 180px
+    padding: 18px
+    margin: 5px 15px
+    font-size: 21px
+
+  &__dot
+    &-container
+      position: absolute
+      bottom: 130px
+      width: 100%
+      display: flex
+      align-items: center
+      justify-content: center
+
+    display: block
+    height: 20px
+    width: 20px
+    margin: 5px
+    border-radius: 100%
+    background-color: #cccccc
+
+    &:hover, &.active
+      outline: none
+      background-color: $color-secondary
+
+
+  &__background
+    position: absolute
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    object-fit: cover
+    z-index: -1
+
+    &--active
+      transform: scale(1.1)
+      @include animate(5s)
+
+.circles
+  position: relative
+  z-index: 3
+  top: -100px
+
+  &__body
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+
+  &__field
+    @include col(100%, 28%)
+    display: flex
+    flex-direction: column
+
+  &__content
+    margin-top: 35px
+    text-align: center
+    flex-grow: 1
+
+  &__img
+    border: 5px solid #ffffff
+    width: 100%
+    max-width: 100%
+    object-fit: cover
+    border-radius: 100%
+
+  &__link
+    @include link--primary
+    @include margin-auto
+    margin-top: 35px
+    max-width: 180px
+
+.parallax
+  background-attachment: fixed
+  background-size: cover
+  background-position: center center
+
+  &__title
+    @include style(font-size, 60px, 90px, 120px, 120px)
+    @include style(padding-top, 80px, 95px, 150px, 250px)
+    @include style(padding-bottom, 90px, 80px, 160px, 225px)
+    color: #ffffff
+    text-align: center
+
+.offer
+  $block: '.offer'
+  position: relative
+  padding-top: 75px
+  padding-bottom: 75px
+
+  &__header
+    text-align: center
+    color: $color-secondary
+    font-size: 36px
+    text-transform: uppercase
+
+  &__body
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    text-align: center
+
+  &__field
+    @include col(100%, 30%)
+    @include style(margin-top, 75px)
+    display: flex
+    flex-direction: column
+
+    &:hover #{$block}
+      &__content:after
+        cursor: pointer
+        opacity: 1
+
+      &__title--hover
+        opacity: 1
+
+      &__img
+        transform: scale(1.1)
+
+  &__content
+    @include style(padding, 125px 25px)
+    overflow: hidden
+    position: relative
+    flex-grow: 1
+
+    &:after
+      @include overlay()
+      @include animate()
+      content: ''
+      opacity: 0
+      background-color: rgba(0, 0, 0, 0.6)
+
+
+  &__link
+    display: block
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    z-index: 99
+
+  &__title
+    position: relative
+    z-index: 3
+
+    &--hover
+      @include animate()
+      opacity: 0
+      color: #ffffff
+      font-size: 21px
+      line-height: 1.3
+      flex-grow: 1
+
+    &--bottom
+      margin-top: 14px
+      text-transform: uppercase
+
+
+  &__img
+    &-container
+      overflow: hidden
+    @include overlay
+    @include animate()
+    object-fit: cover
+
+
+  &__footer
+    @include link--primary
+    @include margin-auto
+    max-width: 180px
+    margin-top: 35px
+    text-align: center
+
+
+  &__background
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    object-fit: cover
+    z-index: -1
+
+.icons
+  position: relative
+
+  &__body
+    display: flex
+    flex-wrap: wrap
+    align-items: center
+    justify-content: space-between
+
+  &__field
+    @include col(100%, 20%)
+    @include style(margin-top, 25px)
+    @include style(margin-bottom, 25px)
+    text-align: center
+    color: #ffffff
+
+  &__img
+    width: 70%
+    height: 100%
+    object-fit: cover
+    display: block
+    @include margin-auto
+
+  &__title
+    @include style(font-size, 32px)
+    margin-top: 7px
+    font-weight: bold
+
+
+  &__sub-title
+    @include style(font-size, 21px)
+    margin-top: 14px
+
+  &__background
+    position: absolute
+    height: 100%
+    width: 100%
+    top: 0
+    left: 0
+    background-color: $color-secondary
+    z-index: -1
+
+.portfolio
+  margin-top: 50px
+  $block: '.portfolio'
+
+  &__header
+    text-align: center
+    color: $color-secondary
+    font-size: 36px
+    text-transform: uppercase
+
+  &__body
+    margin-top: 50px
+    display: flex
+    flex-wrap: wrap
+
+  &__field
+    position: relative
+    display: flex
+    flex-direction: column
+    height: 100%
+    text-align: center
+
+    &:hover #{$block}
+      &__content:after
+        opacity: 1
+
+      &__title
+        opacity: 1
+
+      &__img
+        transform: scale(1.1)
+
+  &__content
+    overflow: hidden
+    height: 100%
+    padding: 175px 75px
+    position: relative
+    text-align: center
+    color: #ffffff
+
+    &:after
+      @include overlay()
+      @include animate()
+      content: ''
+      opacity: 0
+      background-color: rgba(57, 189, 37, 0.3)
+
+  &__title
+    @include animate()
+    position: relative
+    color: #ffffff
+    z-index: 4
+    opacity: 0
+    font-size: 21px
+
+  &__link
+    @include overlay()
+    z-index: 3
+
+  &__img
+    @include animate()
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    object-fit: cover
+    z-index: -1
+
+  &__footer
+    @include link--primary
+    @include margin-auto
+    max-width: 180px
+    text-align: center
+    margin-top: 30px
+    margin-bottom: 30px
+
+.about-us
+  position: relative
+
+  &__body
+    @include style(padding-top, 50px)
+    @include style(padding-bottom, 50px)
+    display: flex
+    flex-wrap: wrap
+    flex-direction: column
+
+  &__title
+    text-align: center
+    font-size: 32px
+    text-transform: uppercase
+    color: #ffffff
+
+  &__content
+    margin-top: 35px
+
+  &__background
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: -1
+    object-fit: cover
+
+.reference
+  position: relative
+  background-attachment: fixed
+  background-size: cover
+  background-position: center 100%
+
+  &__header
+    @include style(padding-top, 50px)
+    text-align: center
+    color: #ffffff
+    font-size: 32px
+
+  &__body
+    @include style(padding-top, 50px)
+    @include style(padding-bottom, 125px)
+
+  &__content
+    text-align: center
+    color: #ffffff
+
+.partners
+  &__header
+    font-size: 36px
+    text-align: center
+    color: $color-secondary
+    text-transform: uppercase
+    margin-top: 50px
+    margin-bottom: 50px
+
+  &__field
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    padding-top: 150px
+    padding-bottom: 150px
+
+  &__img
+    position: absolute
+    width: 100%
+    height: 100%
+    object-fit: contain

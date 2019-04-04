@@ -1,0 +1,25 @@
+.social
+  z-index: 999
+  position: fixed
+  right: 7px
+  top: 250px
+  display: flex
+  flex-direction: column
+  align-items: flex-end
+  @include breakpoint(only-xs)
+    display: none
+
+  &__icon
+    height: 30px
+    width: 30px
+    text-align: right
+    fill: $color-secondary
+    margin-bottom: 3px
+    @include animate(0.15s)
+    @include style(height, 30px, 35px, 37px)
+    @include style(width, 30px, 35px, 37px)
+    display: block
+
+    &:hover
+      cursor: pointer
+      margin-right: 10px

@@ -1,0 +1,27 @@
+.vc_ui-panel-content-container .vc_edit_form_elements .vc_active .vc_col-lg-4, .vc_ui-panel-content-container .vc_edit_form_elements .vc_active .vc_col-sm-3, .vc_ui-panel-content-container .vc_edit_form_elements .vc_active .vc_col-sm-2, .vc_ui-panel-content-container .vc_edit_form_elements .vc_active .vc_col-sm-6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+.vc_ui-panel-content-container .vc_edit_form_elements .vc_active .pt-0, .vc_ui-panel-content-container .vc_edit_form_elements .vc_active .padding-top-0 {
+  padding-top: 0; }
+
+.vc_ui-panel-content-container .vc_edit_form_elements .vc_active .description {
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  padding: 4px;
+  margin-top: -10px;
+  margin-left: auto;
+  margin-right: auto;
+  background: #0473aa; }
+
+img.wpb_vc_param_value.image.attach_image {
+  width: 75px; }
+
+#redux-header .rAds {
+  display: none !important; }
